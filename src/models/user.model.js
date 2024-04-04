@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt"
 
-const useerSchema=new mongoose.Schema({
+const userSchema=new mongoose.Schema({
 
     username:{
         type:String,
@@ -47,4 +48,22 @@ const useerSchema=new mongoose.Schema({
 
 },{timestamps:true});
 
-export const user=mongoose.model("user",useerSchema);
+// password encryption middlewares
+
+userSchema.pre("save",async function(){
+    if(this.isModified("password")){
+        this.password=await bcrypt.hash(this.password,10);
+    }
+});
+
+//  password comparison
+
+userSchema.methods.comparePassword=async function(password){
+    return await bcrypt.compare(password,this.password)
+
+}
+
+// add jwt token access-token
+
+
+export const user=mongoose.model("user",userSchema);
