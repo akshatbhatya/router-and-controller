@@ -9,10 +9,13 @@ app.use(cors({
 }))
 
 //  add middlewares for json file accept 16 kb 
-app.use(json({limit:"16kb"}))
+app.use(Express.json({limit:"16kb"}))
 
-app.use(urlencoded({
+app.use(Express.urlencoded({
     limit:"16kb",
     extended:true}))
 
+app.use(cookieParser())
+
+app.use(Express.static("public"))
 export default app;
