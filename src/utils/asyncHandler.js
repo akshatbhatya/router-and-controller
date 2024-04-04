@@ -7,10 +7,6 @@ const asyncHandller=(requestHandler)=>{
 }
 
 
-
-
-
-
 // function asyncHAndler(fun){
 
 //    return async(req,res,next)=>{
