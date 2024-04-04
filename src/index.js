@@ -8,7 +8,7 @@ const portNo=process.env.PORT||7860;
 
 connectDb().then(()=>{
     app.listen(portNo,()=>{
-        console.log("server is start",portNo);
+        console.log("server is start",`http://localhost:${portNo}`);
 
     })
 
