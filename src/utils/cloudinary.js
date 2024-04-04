@@ -3,8 +3,8 @@ import fs from "fs"
           
 cloudinary.config({ 
   cloud_name:process.env.cloudinary_cloud_name,
-  api_key:cloudinary_api_key,
-  api_secret:cloudinary_api_secret,
+  api_key:process.envcloudinary_api_key,
+  api_secret:process.envcloudinary_api_secret,
 });
 
 const uploadFile=async(localFileUpload)=>{
@@ -19,7 +19,5 @@ const uploadFile=async(localFileUpload)=>{
             console.log(error);
     }
 }
-
-uploadFile()
 
 export default uploadFile;
