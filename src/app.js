@@ -1,5 +1,6 @@
-import  Express, { json, urlencoded }  from "express";
+import  Express  from "express";
 import cors from "cors"
+import cookieParser from "cookie-parser";
 const app=Express();
 
 //  middleware
@@ -12,13 +13,10 @@ app.use(cors({
 //  add middlewares for json file accept 16 kb 
 
 app.use(Express.json({limit:"16kb"}))
-
 app.use(Express.urlencoded({
     limit:"16kb",
-    extended:true}))
-
-app.use(cookieParser())
-
+    extended:true}));
+app.use(cookieParser());
 app.use(Express.static("public"));
 
 
