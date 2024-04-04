@@ -4,9 +4,11 @@ import connectDb from "./db/index.js";
 import app from "./app.js"
 
 
+const portNo=process.env.PORT||7860;
+
 connectDb().then(()=>{
-    app.listen(process.env.PORT||7860,()=>{
-        console.log("server is start");
+    app.listen(portNo,()=>{
+        console.log("server is start",portNo);
 
     })
 
