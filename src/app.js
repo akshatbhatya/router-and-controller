@@ -1,6 +1,7 @@
 import  Express, { json, urlencoded }  from "express";
 import cors from "cors"
 const app=Express();
+
 //  middleware
 
 app.use(cors({
@@ -9,6 +10,7 @@ app.use(cors({
 }))
 
 //  add middlewares for json file accept 16 kb 
+
 app.use(Express.json({limit:"16kb"}))
 
 app.use(Express.urlencoded({
